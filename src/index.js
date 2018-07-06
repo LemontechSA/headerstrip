@@ -1,12 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import I18nProvider from 'components/I18nProvider'
 import Headerstrip from 'components/Headerstrip'
 
-const HeaderstripWrapper = ({ locale, translations, ...otherProps }) => (
-  <I18nProvider locale={locale} translations={translations}>
-    <Headerstrip {...otherProps} />
-  </I18nProvider>
+const HeaderstripWrapper = (props) => (
+  <Headerstrip {...props} />
 )
 
 HeaderstripWrapper.propTypes = {
