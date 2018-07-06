@@ -1,0 +1,5 @@
+node_modules
+stats.html
+tests/coverage
+dist
+yarn-error.log

@@ -1,0 +1,23 @@
+$default-color: #5c7c89;
+$primary-color: #0f82f5;
+
+.my-library {
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 16px;
+  cursor: pointer;
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.theme--default {
+  background: $default-color;
+}
+
+.theme--primary {
+  background: $primary-color;
+}

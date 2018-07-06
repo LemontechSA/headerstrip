@@ -1,0 +1,23 @@
+{
+  "presets": [
+    "react",
+    ["env", {
+      "modules": false
+    }]
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ],
+  "env": {
+    "test": {
+      "presets": ["react", "env"],
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-class-properties",
+        "transform-object-rest-spread"
+      ]
+    }
+  }
+}
