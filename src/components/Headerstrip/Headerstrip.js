@@ -9,6 +9,7 @@ const moment = require('moment');
 class Headerstrip extends Component {
   constructor(props) {
     super(props)
+    console.log('Headerstrip Props', props)
     this.state = {
       status: localStorage.getItem(this.statusKey())
     }
