@@ -9,18 +9,17 @@ const moment = require('moment');
 class Headerstrip extends Component {
   constructor(props) {
     super(props)
-    console.log('Headerstrip Props', props)
     this.state = {
       status: localStorage.getItem(this.statusKey())
     }
   }
 
   statusKey() {
-    return `${this.props.key}-status`
+    return `${this.props.id}-status`
   }
 
   actionKey() {
-    return `${this.props.key}-action-at`
+    return `${this.props.id}-action-at`
   }
 
   onAccept = (event) => {
@@ -54,9 +53,9 @@ class Headerstrip extends Component {
   }
 
   shouldDisplay() {
-    const { key } = this.props
+    const { id } = this.props
     const { status } = this.state
-    const actionAt = moment(localStorage.getItem(`${key}-action-at`)).add(1, 'days')
+    const actionAt = moment(localStorage.getItem(`${id}-action-at`)).add(1, 'days')
     const snoozed = status === 'snoozed'
     const dismissed = status === 'dismissed'
     const accepted = status === 'accepted'
@@ -74,8 +73,8 @@ class Headerstrip extends Component {
   }
 
   render() {
-    const { className, title, texts, key } = this.props
-    if (!key || !this.shouldDisplay()) {
+    const { className, title, texts, id } = this.props
+    if (!id || !this.shouldDisplay()) {
       return null
     }
 
@@ -125,7 +124,7 @@ class Headerstrip extends Component {
 
 Headerstrip.propTypes = {
   className: PropTypes.string,
-  key: PropTypes.string,
+  id: PropTypes.string,
   onAccept: PropTypes.func,
   onDismiss: PropTypes.func,
   onSnooze: PropTypes.func,
@@ -136,13 +135,12 @@ Headerstrip.propTypes = {
 }
 
 Headerstrip.defaultProps = {
-  title: 'Refiere a un colega y te regalamos un Apple Watch S3',
+  title: 'Agrega un referido',
   texts: {
     accept: 'Referir a alguien',
     dismiss: 'No me interesa',
     remind_me_later: 'Recuerdame luego'
   },
-  key: 'some-published'
 }
 
 export default Headerstrip;
