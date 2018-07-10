@@ -6,7 +6,7 @@
     "dist/*"
   ],
   "license": "MIT",
-  "description": "",
+  "description": "A component to display advertising campaings as a header banner in your apps.",
   "author": "5rabbits <5rabbits@lemontech.com> (http://www.5rabbits.com)",
   "keywords": [
     "5rabbits",
@@ -107,7 +107,8 @@
     "deepmerge": "^2.0.0",
     "moment": "^2.22.2",
     "node-polyglot": "^2.2.0",
-    "prop-types": "^15.5.0"
+    "prop-types": "^15.5.0",
+    "uid": "^0.0.2"
   },
   "jest": {
     "moduleDirectories": [

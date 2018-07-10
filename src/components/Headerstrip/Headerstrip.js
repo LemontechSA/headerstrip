@@ -135,11 +135,11 @@ Headerstrip.propTypes = {
 }
 
 Headerstrip.defaultProps = {
-  title: 'Agrega un referido',
+  title: 'Placeholder title',
   texts: {
-    accept: 'Referir a alguien',
-    dismiss: 'No me interesa',
-    remind_me_later: 'Recuerdame luego'
+    accept: 'Accept',
+    dismiss: 'Dismiss',
+    remind_me_later: 'Snooze'
   },
 }
 
