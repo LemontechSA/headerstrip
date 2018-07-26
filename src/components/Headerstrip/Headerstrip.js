@@ -91,7 +91,7 @@ class Headerstrip extends Component {
             onClick={this.onDismiss}
             onKeyPress={this.onDismiss}
           >
-            {texts.dismiss}
+            {texts.dismiss || 'Dismiss'}
           </div>
           <div
             className={classNames(css['headerstrip-option'])}
@@ -100,7 +100,7 @@ class Headerstrip extends Component {
             onClick={this.onSnooze}
             onKeyPress={this.onSnooze}
           >
-            {texts.remind_me_later}
+            {texts.remind_me_later || 'Remind me later'}
           </div>
           <div
             className={
@@ -114,7 +114,7 @@ class Headerstrip extends Component {
             onClick={this.onAccept}
             onKeyPress={this.onAccept}
           >
-            {texts.accept}
+            {texts.accept || 'Accept'}
           </div>
         </div>
       </div>
