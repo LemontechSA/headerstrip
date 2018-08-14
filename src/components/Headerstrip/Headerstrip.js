@@ -120,7 +120,7 @@ class Headerstrip extends Component {
     )
 
     return (
-      <Transition from={{ opacity: 0 }} enter={{ opacity: 1 }} leave={{ opacity: 0 }} >
+      <Transition from={{ opacity: 0, height: 0 }} enter={{ opacity: 1, height: 'auto' }} leave={{ opacity: 0, height: 0 }} >
         {!shouldHide && (styles => <div style={styles}>{HeaderstripBar}</div>)}
       </Transition>
     )
