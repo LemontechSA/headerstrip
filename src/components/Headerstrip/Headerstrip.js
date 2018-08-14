@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { Transition } from 'react-spring'
 
 import css from './Headerstrip.css'
 
@@ -74,11 +75,9 @@ class Headerstrip extends Component {
 
   render() {
     const { className, title, texts, id } = this.props
-    if (!id || !this.shouldDisplay()) {
-      return null
-    }
+    const shouldHide = !id || !this.shouldDisplay()
 
-    return (
+    const HeaderstripBar = (
       <div className={classNames(css.headerstrip, className)}>
         <div className={classNames(css['headerstrip-title'])}>
           {title}
@@ -118,6 +117,15 @@ class Headerstrip extends Component {
           </div>
         </div>
       </div>
+    )
+
+    return (
+      <Transition from={{ opacity: 0 }} enter={{ opacity: 1 }} leave={{ opacity: 0 }} >
+        {shouldHide
+            ? styles => <div style={styles} />
+            : styles => <div style={styles}>{HeaderstripBar}</div>
+        }
+      </Transition>
     )
   }
 }
