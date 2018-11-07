@@ -138,8 +138,5 @@
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/tests/setup.js",
     "resolver": "jest-directory-named-resolver"
-  },
-  "engines": {
-    "node": ">=8.3.0"
   }
 }
