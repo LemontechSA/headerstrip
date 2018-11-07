@@ -1,6 +1,6 @@
 {
   "name": "@5rabbits/headerstrip",
-  "version": "0.5.0",
+  "version": "0.7.0",
   "main": "dist/headerstrip.js",
   "files": [
     "dist/*"
@@ -138,8 +138,5 @@
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/tests/setup.js",
     "resolver": "jest-directory-named-resolver"
-  },
-  "engines": {
-    "node": ">=8.3.0"
   }
 }
