@@ -1,6 +1,6 @@
 {
   "name": "@5rabbits/headerstrip",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "main": "dist/headerstrip.js",
   "files": [
     "dist/*"
@@ -82,8 +82,8 @@
     "postcss-sassy-mixins": "^2.0.0",
     "postcss-simple-vars": "^4.0.0",
     "prettier": "^1.11.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "rollup": "^0.57.0",
     "rollup-plugin-babel": "^3.0.0",
     "rollup-plugin-commonjs": "^9.0.0",
@@ -98,16 +98,16 @@
     "storybook-readme": "^3.3.0"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "dependencies": {
     "@5rabbits/react-polyglot": "^0.2.6",
     "classnames": "^2.0.0",
     "deepmerge": "^2.0.0",
-    "moment": "^2.22.2",
+    "moment": "^2.24.0",
     "node-polyglot": "^2.2.0",
-    "prop-types": "^15.5.0",
+    "prop-types": "^15.7.2",
     "react-spring": "^5.6.6",
     "uid": "^0.0.2"
   },
