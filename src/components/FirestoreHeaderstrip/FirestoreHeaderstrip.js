@@ -30,31 +30,57 @@ export default class FirestoreHeaderstrip extends PureComponent {
     return campaign.id && !isExcluded ? builtKey : null
   }
 
+  shouldFetch = () => {
+    if (localStorage.getItem('no-campaign')) {
+      const since = moment(localStorage.getItem('no-campaign')).add(6, 'hours')
+
+      const hoursBetweenLastFetch = moment
+        .duration(since.diff(moment()))
+        .asHours()
+
+      if (hoursBetweenLastFetch < 6) {
+        return false
+      }
+
+      localStorage.removeItem('no-campaign')
+      return true
+    }
+
+    return true
+  }
+
   fetchCampaign() {
     const { db, countryCode, product } = this.props
 
-    return db
-      .collection('campaigns')
-      .where('country', '==', countryCode)
-      .where('product', '==', product)
-      .where('valid_until', '>=', moment().toDate())
-      .where('active', '==', true)
-      .get()
-      .then(querySnapshot => {
-        const doc = querySnapshot.docs[0]
+    if (!this.shouldFetch()) {
+      return null
+    }
 
-        if (!doc) {
-          return {}
-        }
+    return (
+      db
+        .collection('campaigns')
+        .where('country', '==', countryCode)
+        .where('product', '==', product)
+        .where('valid_until', '>=', moment().toDate())
+        // .where('active', '==', true)
+        .get()
+        .then(querySnapshot => {
+          const doc = querySnapshot.docs[0]
 
-        return { ...doc.data(), id: doc.id }
-      })
-      .then(doc => {
-        this.setState({
-          loading: false,
-          campaign: doc,
+          if (!doc) {
+            localStorage.setItem('no-campaign', moment().format('X'))
+            return {}
+          }
+
+          return { ...doc.data(), id: doc.id }
         })
-      })
+        .then(doc => {
+          this.setState({
+            loading: false,
+            campaign: doc,
+          })
+        })
+    )
   }
 
   buildCallbacks() {
@@ -119,8 +145,10 @@ export default class FirestoreHeaderstrip extends PureComponent {
         onDismiss={onDismiss}
         onAccept={onAccept}
         onSnooze={onSnooze}
-        showDismiss={campaign.showDismiss ? campaign.showDismiss : null}
-        showSnooze={campaign.showSnooze ? campaign.showSnooze : null}
+        showDismiss={
+          campaign.showDismiss !== null ? campaign.showDismiss : true
+        }
+        showSnooze={campaign.showSnooze !== null ? campaign.showSnooze : true}
       />
     )
   }
