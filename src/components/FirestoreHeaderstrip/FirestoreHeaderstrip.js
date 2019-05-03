@@ -56,31 +56,29 @@ export default class FirestoreHeaderstrip extends PureComponent {
       return null
     }
 
-    return (
-      db
-        .collection('campaigns')
-        .where('country', '==', countryCode)
-        .where('product', '==', product)
-        .where('valid_until', '>=', moment().toDate())
-        // .where('active', '==', true)
-        .get()
-        .then(querySnapshot => {
-          const doc = querySnapshot.docs[0]
+    return db
+      .collection('campaigns')
+      .where('country', '==', countryCode)
+      .where('product', '==', product)
+      .where('valid_until', '>=', moment().toDate())
+      .where('active', '==', true)
+      .get()
+      .then(querySnapshot => {
+        const doc = querySnapshot.docs[0]
 
-          if (!doc) {
-            localStorage.setItem('no-campaign', moment().format('X'))
-            return {}
-          }
+        if (!doc) {
+          localStorage.setItem('no-campaign', moment().format('X'))
+          return {}
+        }
 
-          return { ...doc.data(), id: doc.id }
+        return { ...doc.data(), id: doc.id }
+      })
+      .then(doc => {
+        this.setState({
+          loading: false,
+          campaign: doc,
         })
-        .then(doc => {
-          this.setState({
-            loading: false,
-            campaign: doc,
-          })
-        })
-    )
+      })
   }
 
   buildCallbacks() {
