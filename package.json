@@ -109,6 +109,7 @@
     "node-polyglot": "^2.2.0",
     "prop-types": "^15.7.2",
     "react-spring": "^5.6.6",
+    "react-topbar-progress-indicator": "^2.0.0",
     "uid": "^0.0.2"
   },
   "jest": {
