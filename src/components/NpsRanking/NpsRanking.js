@@ -24,12 +24,10 @@ export default class NpsRanking extends React.PureComponent {
     const data = Array.from(Array(npsTexts.ranking), (x, index) => index + 1)
     return (
       <div className={classNames(css['headerstrip-nps-content'])}>
-        <div className={classNames(css[`headerstrip-title-nps'}`])}>
-          {title}
-        </div>
+        <div className={classNames(css['headerstrip-title-nps'])}>{title}</div>
         <div className={classNames(css['headerstrip-ranking'])}>
           <div
-            style={{ marginRight: 2 }}
+            style={{ marginRight: 4 }}
             className={classNames(css['headerstrip-title-nps-options'])}
           >
             {npsTexts.left}
@@ -51,7 +49,7 @@ export default class NpsRanking extends React.PureComponent {
             </div>
           ))}
           <div
-            style={{ marginLeft: 2 }}
+            style={{ marginLeft: 4 }}
             className={classNames(css['headerstrip-title-nps-options'])}
           >
             {npsTexts.right}

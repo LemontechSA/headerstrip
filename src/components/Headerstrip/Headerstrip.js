@@ -35,7 +35,6 @@ class Headerstrip extends Component {
       remind_me_later: 'Snooze',
     },
     nps: {
-      show: true,
       texts: {
         ranking: 10,
         left: 'Poco probable',
@@ -82,7 +81,7 @@ class Headerstrip extends Component {
       this.props.onAccept(index)
     }
     this.setState({ showNpsAccept: true }, () => {
-      localStorage.setItem(this.statusKey(), 'accepted')
+      localStorage.setItem(this.statusKey(), index)
       localStorage.setItem(this.actionKey(), moment().format('YYYY-MM-DD'))
       setTimeout(() => {
         this.setState({ status: 'accepted' })
@@ -160,11 +159,7 @@ class Headerstrip extends Component {
               />
             )}
             {!npsShow && (
-              <div
-                className={classNames(
-                  css[`headerstrip-title${npsShow && '-nps'}`]
-                )}
-              >
+              <div className={classNames(css['headerstrip-title'])}>
                 {title}
               </div>
             )}
@@ -216,11 +211,7 @@ class Headerstrip extends Component {
         ) : (
           <Fragment>
             <TopBarProgress />
-            <div
-              className={classNames(
-                css[`headerstrip-title${npsShow && '-nps'}`]
-              )}
-            >
+            <div className={classNames(css['headerstrip-title-nps'])}>
               {texts.accept || 'Accept'}
             </div>
           </Fragment>

@@ -108,8 +108,8 @@ export default class FirestoreHeaderstrip extends PureComponent {
       notifyAction('dismiss')
     }
 
-    const onAccept = () => {
-      notifyAction('accept')
+    const onAccept = (value = 'accept') => {
+      notifyAction(value)
       if (typeof this.props.onAccept === 'function') {
         this.props.onAccept(campaign)
       }
