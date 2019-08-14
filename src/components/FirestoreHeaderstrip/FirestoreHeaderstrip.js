@@ -8,10 +8,15 @@ export default class FirestoreHeaderstrip extends PureComponent {
   static propTypes = {
     countryCode: PropTypes.string,
     db: PropTypes.object,
+    nps: PropTypes.object,
+    npsShow: PropTypes.bool,
     onAccept: PropTypes.func,
     product: PropTypes.string,
     tenant: PropTypes.string,
     user: PropTypes.object,
+  }
+  static defaultProps = {
+    npsShow: false,
   }
 
   state = {
@@ -119,7 +124,7 @@ export default class FirestoreHeaderstrip extends PureComponent {
 
   render() {
     const { loading, campaign } = this.state
-    const { user } = this.props
+    const { user, npsShow, nps } = this.props
 
     if (loading) {
       return null
@@ -147,6 +152,8 @@ export default class FirestoreHeaderstrip extends PureComponent {
           campaign.showDismiss !== null ? campaign.showDismiss : true
         }
         showSnooze={campaign.showSnooze !== null ? campaign.showSnooze : true}
+        npsShow={npsShow}
+        nps={nps}
       />
     )
   }
