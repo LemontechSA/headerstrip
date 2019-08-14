@@ -4167,7 +4167,7 @@
 	        { className: classnames(css['headerstrip-nps-content']) },
 	        React__default.createElement(
 	          'div',
-	          { className: classnames(css['headerstrip-title-nps\'}']) },
+	          { className: classnames(css['headerstrip-title-nps']) },
 	          title
 	        ),
 	        React__default.createElement(
@@ -4176,7 +4176,7 @@
 	          React__default.createElement(
 	            'div',
 	            {
-	              style: { marginRight: 2 },
+	              style: { marginRight: 4 },
 	              className: classnames(css['headerstrip-title-nps-options'])
 	            },
 	            npsTexts.left
@@ -4202,7 +4202,7 @@
 	          React__default.createElement(
 	            'div',
 	            {
-	              style: { marginLeft: 2 },
+	              style: { marginLeft: 4 },
 	              className: classnames(css['headerstrip-title-nps-options'])
 	            },
 	            npsTexts.right
@@ -4250,7 +4250,7 @@
 	        _this.props.onAccept(index);
 	      }
 	      _this.setState({ showNpsAccept: true }, function () {
-	        localStorage.setItem(_this.statusKey(), 'accepted');
+	        localStorage.setItem(_this.statusKey(), index);
 	        localStorage.setItem(_this.actionKey(), moment().format('YYYY-MM-DD'));
 	        setTimeout(function () {
 	          _this.setState({ status: 'accepted' });
@@ -4286,8 +4286,8 @@
 	    };
 	    TopBarProgress.config({
 	      barColors: {
-	        "0": props.nps.progressColor,
-	        "1.0": props.nps.progressColor
+	        '0': props.nps.progressColor,
+	        '1.0': props.nps.progressColor
 	      },
 	      shadowBlur: 2
 	    });
@@ -4347,10 +4347,14 @@
 	        !showNpsAccept ? React__default.createElement(
 	          React.Fragment,
 	          null,
-	          npsShow && React__default.createElement(NpsRanking, { npsTexts: nps.texts, callback: this.onAcceptNps, title: title }),
+	          npsShow && React__default.createElement(NpsRanking, {
+	            npsTexts: nps.texts,
+	            callback: this.onAcceptNps,
+	            title: title
+	          }),
 	          !npsShow && React__default.createElement(
 	            'div',
-	            { className: classnames(css['headerstrip-title' + (npsShow && '-nps')]) },
+	            { className: classnames(css['headerstrip-title']) },
 	            title
 	          ),
 	          React__default.createElement(
@@ -4396,7 +4400,7 @@
 	          React__default.createElement(TopBarProgress, null),
 	          React__default.createElement(
 	            'div',
-	            { className: classnames(css['headerstrip-title' + (npsShow && '-nps')]) },
+	            { className: classnames(css['headerstrip-title-nps']) },
 	            texts.accept || 'Accept'
 	          )
 	        )
@@ -4443,7 +4447,6 @@
 	    remind_me_later: 'Snooze'
 	  },
 	  nps: {
-	    show: true,
 	    texts: {
 	      ranking: 10,
 	      left: 'Poco probable',
@@ -4566,7 +4569,9 @@
 	      };
 
 	      var onAccept = function onAccept() {
-	        notifyAction('accept');
+	        var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'accept';
+
+	        notifyAction(value);
 	        if (typeof _this3.props.onAccept === 'function') {
 	          _this3.props.onAccept(campaign);
 	        }

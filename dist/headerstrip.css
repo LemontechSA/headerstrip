@@ -5,14 +5,29 @@
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  color: #FFF;
+  color: #fff;
   -ms-flex-pack: justify;
       justify-content: space-between;
   -ms-flex-align: center;
       align-items: center;
-  background: rgba(202,104,39,1);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(202,104,39,1)), color-stop(0%, rgba(202,104,39,1)), color-stop(50%, rgba(202,104,39,1)), color-stop(50%, rgba(230,123,47,1)), color-stop(100%, rgba(230,123,47,1)));
-  background: linear-gradient(135deg, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 50%, rgba(230,123,47,1) 50%, rgba(230,123,47,1) 100%);
+  background: rgba(202, 104, 39, 1);
+  background: -webkit-gradient(
+    left top,
+    right bottom,
+    color-stop(0%, rgba(202, 104, 39, 1)),
+    color-stop(0%, rgba(202, 104, 39, 1)),
+    color-stop(50%, rgba(202, 104, 39, 1)),
+    color-stop(50%, rgba(230, 123, 47, 1)),
+    color-stop(100%, rgba(230, 123, 47, 1))
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 50%,
+    rgba(230, 123, 47, 1) 50%,
+    rgba(230, 123, 47, 1) 100%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ca6827', endColorstr='#e67b2f', GradientType=1 );
 }
 
@@ -39,7 +54,7 @@
 .Headerstrip_headerstrip-rounded-option__2S_Z2 {
   margin-right: 12px;
   border-radius: 2px;
-  border: 2px #FFFFFF solid;
+  border: 2px #ffffff solid;
 }
 
 .Headerstrip_headerstrip-rounded-option__2S_Z2:last-child {
@@ -48,12 +63,12 @@
 
 .Headerstrip_headerstrip-option__171Rb:hover {
   cursor: pointer;
-  background-color: #CA6827;
+  background-color: #ca6827;
 }
 
 .Headerstrip_headerstrip-title-nps__2KZnx {
-  color: #FFFFFF;
-  font-family: "Helvetica Neue";
+  color: #ffffff;
+  font-family: 'Helvetica Neue';
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
@@ -68,10 +83,10 @@
       align-items: center;
   -ms-flex-pack: center;
       justify-content: center;
-	color: #FFFFFF;
-	font-family: Helvetica;
-	font-size: 12px;
-	line-height: 16px;
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .Headerstrip_headerstrip-nps-content__2i20P {
@@ -102,11 +117,11 @@
       align-items: center;
   -ms-flex-pack: center;
       justify-content: center;
-  background-color: #EEEEEE;
-  color: #8B8B8B;
+  background-color: #eeeeee;
+  color: #8b8b8b;
   font-family: Helvetica;
   font-size: 12px;
   line-height: 16px;
   text-align: center;
-  margin-left: 1px;
+  margin-left: 1.5px;
 }
