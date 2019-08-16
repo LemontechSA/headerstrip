@@ -7,7 +7,11 @@ import css from '../Headerstrip/Headerstrip.css'
 export default class NpsRanking extends React.PureComponent {
   static propTypes = {
     callback: PropTypes.func,
-    npsTexts: PropTypes.object,
+    npsTexts: PropTypes.shape({
+      ranking: PropTypes.number,
+      left: PropTypes.string,
+      right: PropTypes.string,
+    }),
     title: PropTypes.string,
   }
 
@@ -17,6 +21,8 @@ export default class NpsRanking extends React.PureComponent {
       left: 'Poco probable',
       right: 'Muy probable',
     },
+    callback: () => {},
+    title: 'Default Title',
   }
 
   render() {

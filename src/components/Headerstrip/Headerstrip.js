@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { Transition } from 'react-spring'
 import TopBarProgress from 'react-topbar-progress-indicator'
 import NpsRanking from '../NpsRanking/NpsRanking'
+import Option from '../Option/Option'
 
 import css from './Headerstrip.css'
 
@@ -149,7 +150,14 @@ class Headerstrip extends Component {
     const shouldHide = !id || !this.shouldDisplay()
     const HeaderstripBar = (
       <div className={classNames(css.headerstrip, className)}>
-        {!showNpsAccept ? (
+        {showNpsAccept ? (
+          <Fragment>
+            <TopBarProgress />
+            <div className={classNames(css['headerstrip-title-nps'])}>
+              {texts.accept || 'Accept'}
+            </div>
+          </Fragment>
+        ) : (
           <Fragment>
             {npsShow && (
               <NpsRanking
@@ -165,54 +173,35 @@ class Headerstrip extends Component {
             )}
             <div className={classNames(css['headerstrip-options'])}>
               {showDismiss && (
-                <div
+                <Option
                   className={classNames(
                     css['headerstrip-option'],
                     css[`${npsShow && 'headerstrip-title-nps-options'}`]
                   )}
-                  role="button"
-                  tabIndex={0}
+                  text={texts.dismiss || 'Dismiss'}
                   onClick={this.onDismiss}
-                  onKeyPress={this.onDismiss}
-                >
-                  {texts.dismiss || 'Dismiss'}
-                </div>
+                />
               )}
               {showSnooze && (
-                <div
+                <Option
                   className={classNames(
                     css['headerstrip-option'],
                     css[`${npsShow && 'headerstrip-title-nps-options'}`]
                   )}
-                  role="button"
-                  tabIndex={0}
+                  text={texts.remind_me_later || 'Remind me later'}
                   onClick={this.onSnooze}
-                  onKeyPress={this.onSnooze}
-                >
-                  {texts.remind_me_later || 'Remind me later'}
-                </div>
+                />
               )}
               {!npsShow && (
-                <div
+                <Option
                   className={classNames(
                     css['headerstrip-option'],
                     css['headerstrip-rounded-option']
                   )}
-                  role="button"
-                  tabIndex={0}
+                  text={texts.accept || 'Accept'}
                   onClick={this.onAccept}
-                  onKeyPress={this.onAccept}
-                >
-                  {texts.accept || 'Accept'}
-                </div>
+                />
               )}
-            </div>
-          </Fragment>
-        ) : (
-          <Fragment>
-            <TopBarProgress />
-            <div className={classNames(css['headerstrip-title-nps'])}>
-              {texts.accept || 'Accept'}
             </div>
           </Fragment>
         )}
