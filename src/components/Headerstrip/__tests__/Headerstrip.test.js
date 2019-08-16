@@ -3,25 +3,33 @@ import { shallow } from 'tests/test-helper'
 import Headerstrip from '../Headerstrip'
 
 describe(Headerstrip, () => {
-  it('should display "Click here" text', () => {
+  it('to be defined component wihout props', () => {
     const component = shallow(<Headerstrip />)
-
-    expect(component).toHaveText('Click here')
+    expect(component).toBeDefined()
   })
 
-  describe('props.className', () => {
-    it('should assign the specified className', () => {
-      const component = shallow(<Headerstrip className="some-classname" />)
-
-      expect(component.find('button')).toHaveClassName('some-classname')
+  it('component with prop id - validate default props', () => {
+    const component = shallow(<Headerstrip id="1234" />)
+    expect(component.props().title).toEqual('Placeholder title')
+    expect(component.props().title).toEqual('Placeholder title')
+    expect(component.props().texts).toEqual({
+      accept: 'Accept',
+      dismiss: 'Dismiss',
+      remind_me_later: 'Snooze',
     })
   })
 
-  describe('props.theme', () => {
-    it('should assign a className for the specified theme', () => {
-      const component = shallow(<Headerstrip theme="primary" />)
+  it('component with customized texts', () => {
+    const props = {
+      id: '1234',
+      texts: {
+        accept: 'Refer someone',
+        dismiss: 'Not interested',
+        remind_me_later: 'Snooze please!',
+      },
+    }
+    const component = shallow(<Headerstrip {...props} />)
 
-      expect(component.find('button')).toHaveClassName('theme--primary')
-    })
+    console.log(component.childAt(0))
   })
 })

@@ -1,11 +1,11 @@
 import Polyglot from 'node-polyglot'
 import PropTypes from 'prop-types'
 import { mount as enzymeMount, shallow as enzymeShallow } from 'enzyme'
-import en from 'locale/en'
+// import en from 'locale/en'
 
 const polyglot = new Polyglot({
   locale: 'en',
-  phrases: en,
+  phrases: 'en',
 })
 
 const renderWithContext = (renderer, node, options = {}) =>
