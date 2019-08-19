@@ -4214,15 +4214,55 @@
 	  return NpsRanking;
 	}(React__default.PureComponent), _class.propTypes = {
 	  callback: propTypes.func,
-	  npsTexts: propTypes.object,
+	  npsTexts: propTypes.shape({
+	    ranking: propTypes.number,
+	    left: propTypes.string,
+	    right: propTypes.string
+	  }),
 	  title: propTypes.string
 	}, _class.defaultProps = {
 	  npsTexts: {
 	    ranking: 10,
 	    left: 'Poco probable',
 	    right: 'Muy probable'
-	  }
+	  },
+	  callback: function callback() {},
+	  title: 'Default Title'
 	}, _temp);
+
+	var Option = function Option(props) {
+	  var text = props.text,
+	      _onClick = props.onClick,
+	      className = props.className;
+
+	  return React__default.createElement(
+	    'div',
+	    {
+	      className: className,
+	      role: 'button',
+	      tabIndex: 0,
+	      onClick: function onClick() {
+	        _onClick();
+	      },
+	      onKeyPress: function onKeyPress() {
+	        _onClick();
+	      }
+	    },
+	    text
+	  );
+	};
+
+	Option.propTypes = {
+	  className: propTypes.string,
+	  onClick: propTypes.func,
+	  text: propTypes.string
+	};
+
+	Option.defaultProps = {
+	  className: classnames(css['headerstrip-option']),
+	  onClick: function onClick() {},
+	  text: 'text option'
+	};
 
 	var _class$1, _temp$1;
 
@@ -4344,7 +4384,16 @@
 	      var HeaderstripBar = React__default.createElement(
 	        'div',
 	        { className: classnames(css.headerstrip, className) },
-	        !showNpsAccept ? React__default.createElement(
+	        showNpsAccept ? React__default.createElement(
+	          React.Fragment,
+	          null,
+	          React__default.createElement(TopBarProgress, null),
+	          React__default.createElement(
+	            'div',
+	            { className: classnames(css['headerstrip-title-nps']) },
+	            texts.accept || 'Accept'
+	          )
+	        ) : React__default.createElement(
 	          React.Fragment,
 	          null,
 	          npsShow && React__default.createElement(NpsRanking, {
@@ -4360,48 +4409,21 @@
 	          React__default.createElement(
 	            'div',
 	            { className: classnames(css['headerstrip-options']) },
-	            showDismiss && React__default.createElement(
-	              'div',
-	              {
-	                className: classnames(css['headerstrip-option'], css['' + (npsShow && 'headerstrip-title-nps-options')]),
-	                role: 'button',
-	                tabIndex: 0,
-	                onClick: this.onDismiss,
-	                onKeyPress: this.onDismiss
-	              },
-	              texts.dismiss || 'Dismiss'
-	            ),
-	            showSnooze && React__default.createElement(
-	              'div',
-	              {
-	                className: classnames(css['headerstrip-option'], css['' + (npsShow && 'headerstrip-title-nps-options')]),
-	                role: 'button',
-	                tabIndex: 0,
-	                onClick: this.onSnooze,
-	                onKeyPress: this.onSnooze
-	              },
-	              texts.remind_me_later || 'Remind me later'
-	            ),
-	            !npsShow && React__default.createElement(
-	              'div',
-	              {
-	                className: classnames(css['headerstrip-option'], css['headerstrip-rounded-option']),
-	                role: 'button',
-	                tabIndex: 0,
-	                onClick: this.onAccept,
-	                onKeyPress: this.onAccept
-	              },
-	              texts.accept || 'Accept'
-	            )
-	          )
-	        ) : React__default.createElement(
-	          React.Fragment,
-	          null,
-	          React__default.createElement(TopBarProgress, null),
-	          React__default.createElement(
-	            'div',
-	            { className: classnames(css['headerstrip-title-nps']) },
-	            texts.accept || 'Accept'
+	            showDismiss && React__default.createElement(Option, {
+	              className: classnames(css['headerstrip-option'], css['' + (npsShow && 'headerstrip-title-nps-options')]),
+	              text: texts.dismiss || 'Dismiss',
+	              onClick: this.onDismiss
+	            }),
+	            showSnooze && React__default.createElement(Option, {
+	              className: classnames(css['headerstrip-option'], css['' + (npsShow && 'headerstrip-title-nps-options')]),
+	              text: texts.remind_me_later || 'Remind me later',
+	              onClick: this.onSnooze
+	            }),
+	            !npsShow && React__default.createElement(Option, {
+	              className: classnames(css['headerstrip-option'], css['headerstrip-rounded-option']),
+	              text: texts.accept || 'Accept',
+	              onClick: this.onAccept
+	            })
 	          )
 	        )
 	      );

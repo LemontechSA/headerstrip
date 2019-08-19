@@ -8,7 +8,7 @@ describe(NpsRanking, () => {
     expect(component).toBeDefined()
   })
 
-  it('component with props', () => {
+  it('component with props and simulate press', () => {
     const mockFunc = jest.fn()
     const props = {
       npsTexts: {
