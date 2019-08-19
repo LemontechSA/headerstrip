@@ -28,16 +28,16 @@ class Headerstrip extends Component {
   static defaultProps = {
     title: 'Placeholder title',
     showDismiss: true,
-    npsShow: false,
     showSnooze: true,
     texts: {
       accept: 'Accept',
       dismiss: 'Dismiss',
       remind_me_later: 'Snooze',
     },
+    npsShow: false,
     nps: {
+      ranking: 10,
       texts: {
-        ranking: 10,
         left: 'Poco probable',
         right: 'Muy probable',
       },
@@ -161,6 +161,7 @@ class Headerstrip extends Component {
           <Fragment>
             {npsShow && (
               <NpsRanking
+                ranking={nps.ranking}
                 npsTexts={nps.texts}
                 callback={this.onAcceptNps}
                 title={title}

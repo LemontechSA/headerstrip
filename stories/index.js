@@ -48,8 +48,8 @@ storiesOf('Headerstrip', module)
       id={uid()}
       npsShow
       nps={{
+        ranking: 10,
         texts: {
-          ranking: 10,
           left: 'Poco probable',
           right: 'Muy probable',
         },

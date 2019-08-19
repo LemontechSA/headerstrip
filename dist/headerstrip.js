@@ -4157,9 +4157,10 @@
 	      var _props = this.props,
 	          npsTexts = _props.npsTexts,
 	          callback = _props.callback,
-	          title = _props.title;
+	          title = _props.title,
+	          ranking = _props.ranking;
 
-	      var data = Array.from(Array(npsTexts.ranking), function (x, index) {
+	      var data = Array.from(Array(ranking), function (x, index) {
 	        return index + 1;
 	      });
 	      return React__default.createElement(
@@ -4215,17 +4216,17 @@
 	}(React__default.PureComponent), _class.propTypes = {
 	  callback: propTypes.func,
 	  npsTexts: propTypes.shape({
-	    ranking: propTypes.number,
 	    left: propTypes.string,
 	    right: propTypes.string
 	  }),
+	  ranking: propTypes.number,
 	  title: propTypes.string
 	}, _class.defaultProps = {
 	  npsTexts: {
-	    ranking: 10,
 	    left: 'Poco probable',
 	    right: 'Muy probable'
 	  },
+	  ranking: 10,
 	  callback: function callback() {},
 	  title: 'Default Title'
 	}, _temp);
@@ -4397,6 +4398,7 @@
 	          React.Fragment,
 	          null,
 	          npsShow && React__default.createElement(NpsRanking, {
+	            ranking: nps.ranking,
 	            npsTexts: nps.texts,
 	            callback: this.onAcceptNps,
 	            title: title
@@ -4461,16 +4463,16 @@
 	}, _class$1.defaultProps = {
 	  title: 'Placeholder title',
 	  showDismiss: true,
-	  npsShow: false,
 	  showSnooze: true,
 	  texts: {
 	    accept: 'Accept',
 	    dismiss: 'Dismiss',
 	    remind_me_later: 'Snooze'
 	  },
+	  npsShow: false,
 	  nps: {
+	    ranking: 10,
 	    texts: {
-	      ranking: 10,
 	      left: 'Poco probable',
 	      right: 'Muy probable'
 	    },

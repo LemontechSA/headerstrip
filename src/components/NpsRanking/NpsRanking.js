@@ -8,26 +8,26 @@ export default class NpsRanking extends React.PureComponent {
   static propTypes = {
     callback: PropTypes.func,
     npsTexts: PropTypes.shape({
-      ranking: PropTypes.number,
       left: PropTypes.string,
       right: PropTypes.string,
     }),
+    ranking: PropTypes.number,
     title: PropTypes.string,
   }
 
   static defaultProps = {
     npsTexts: {
-      ranking: 10,
       left: 'Poco probable',
       right: 'Muy probable',
     },
+    ranking: 10,
     callback: () => {},
     title: 'Default Title',
   }
 
   render() {
-    const { npsTexts, callback, title } = this.props
-    const data = Array.from(Array(npsTexts.ranking), (x, index) => index + 1)
+    const { npsTexts, callback, title, ranking } = this.props
+    const data = Array.from(Array(ranking), (x, index) => index + 1)
     return (
       <div className={classNames(css['headerstrip-nps-content'])}>
         <div className={classNames(css['headerstrip-title-nps'])}>{title}</div>
