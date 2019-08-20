@@ -69,17 +69,19 @@ class Headerstrip extends Component {
   }
 
   onAccept = event => {
-    event.preventDefault()
+    const { onAccept } = this.props
     if (typeof this.props.onAccept === 'function') {
-      this.props.onAccept()
+      event.preventDefault()
+      onAccept()
     }
     this.setStorage('accepted')
   }
 
   onAcceptNps = (event, index) => {
-    event.preventDefault()
-    if (typeof this.props.onAccept === 'function') {
-      this.props.onAccept(index)
+    const { onAccept } = this.props
+    if (typeof onAccept === 'function') {
+      event.preventDefault()
+      onAccept(index)
     }
     this.setState({ showNpsAccept: true }, () => {
       localStorage.setItem(this.statusKey(), index)
@@ -91,17 +93,19 @@ class Headerstrip extends Component {
   }
 
   onDismiss = event => {
-    event.preventDefault()
-    if (typeof this.props.onDismiss === 'function') {
-      this.props.onDismiss()
+    const { onDismiss } = this.props
+    if (typeof onDismiss === 'function') {
+      event.preventDefault()
+      onDismiss()
     }
     this.setStorage('dismissed')
   }
 
   onSnooze = event => {
-    event.preventDefault()
-    if (typeof this.props.onSnooze === 'function') {
-      this.props.onSnooze()
+    const { onSnooze } = this.props
+    if (typeof onSnooze === 'function') {
+      event.preventDefault()
+      onSnooze()
     }
     this.setStorage('snoozed')
   }

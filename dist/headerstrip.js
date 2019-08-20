@@ -4278,17 +4278,21 @@
 	    var _this = possibleConstructorReturn(this, (Headerstrip.__proto__ || Object.getPrototypeOf(Headerstrip)).call(this, props));
 
 	    _this.onAccept = function (event) {
-	      event.preventDefault();
+	      var onAccept = _this.props.onAccept;
+
 	      if (typeof _this.props.onAccept === 'function') {
-	        _this.props.onAccept();
+	        event.preventDefault();
+	        onAccept();
 	      }
 	      _this.setStorage('accepted');
 	    };
 
 	    _this.onAcceptNps = function (event, index) {
-	      event.preventDefault();
-	      if (typeof _this.props.onAccept === 'function') {
-	        _this.props.onAccept(index);
+	      var onAccept = _this.props.onAccept;
+
+	      if (typeof onAccept === 'function') {
+	        event.preventDefault();
+	        onAccept(index);
 	      }
 	      _this.setState({ showNpsAccept: true }, function () {
 	        localStorage.setItem(_this.statusKey(), index);
@@ -4300,17 +4304,21 @@
 	    };
 
 	    _this.onDismiss = function (event) {
-	      event.preventDefault();
-	      if (typeof _this.props.onDismiss === 'function') {
-	        _this.props.onDismiss();
+	      var onDismiss = _this.props.onDismiss;
+
+	      if (typeof onDismiss === 'function') {
+	        event.preventDefault();
+	        onDismiss();
 	      }
 	      _this.setStorage('dismissed');
 	    };
 
 	    _this.onSnooze = function (event) {
-	      event.preventDefault();
-	      if (typeof _this.props.onSnooze === 'function') {
-	        _this.props.onSnooze();
+	      var onSnooze = _this.props.onSnooze;
+
+	      if (typeof onSnooze === 'function') {
+	        event.preventDefault();
+	        onSnooze();
 	      }
 	      _this.setStorage('snoozed');
 	    };
