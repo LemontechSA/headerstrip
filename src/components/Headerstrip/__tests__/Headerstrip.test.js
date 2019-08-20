@@ -3,6 +3,15 @@ import { shallow } from 'tests/test-helper'
 import Headerstrip from '../Headerstrip'
 
 describe(Headerstrip, () => {
+  const props = {
+    id: '1234',
+    texts: {
+      accept: 'Refer someone',
+      dismiss: 'Not interested',
+      remind_me_later: 'Snooze please!',
+    },
+  }
+
   it('to be defined component wihout props', () => {
     const component = shallow(<Headerstrip />)
     expect(component).toBeDefined()
@@ -18,41 +27,31 @@ describe(Headerstrip, () => {
     })
   })
 
-  it('validate functions', () => {
-    const props = {
-      id: '1234',
-      texts: {
-        accept: 'Refer someone',
-        dismiss: 'Not interested',
-        remind_me_later: 'Snooze please!',
-      },
-    }
+  it('validate: actionKey function', () => {
     const component = shallow(<Headerstrip {...props} />)
     const instance = component.instance()
-    // actionKey function
     const resActionKey = instance.actionKey()
     expect(resActionKey).toEqual('1234-action-at')
-    // setStorage function
+  })
+
+  it('validate: setStorage function', () => {
+    const component = shallow(<Headerstrip {...props} />)
+    const instance = component.instance()
     instance.setStorage('dismissed')
     expect(component.state().status).toEqual('dismissed')
     instance.setStorage('snoozed')
     expect(component.state().status).toEqual('snoozed')
   })
 
-  it('validate event functions', () => {
+  it('validate: onSnooze function', () => {
     const mockFunc = jest.fn()
-    const props = {
-      id: '1234',
-      texts: {
-        accept: 'Refer someone',
-        dismiss: 'Not interested',
-        remind_me_later: 'Snooze please!',
-      },
+    const propsFunctions = {
+      ...props,
       onSnooze: mockFunc,
       onAccept: mockFunc,
       onDismiss: mockFunc,
     }
-    const component = shallow(<Headerstrip {...props} />)
+    const component = shallow(<Headerstrip {...propsFunctions} />)
     const instance = component.instance()
     const event = {
       preventDefault() {},
@@ -60,8 +59,40 @@ describe(Headerstrip, () => {
     }
     instance.onSnooze(event)
     expect(component.state().status).toEqual('snoozed')
+  })
+
+  it('validate: onDismiss function', () => {
+    const mockFunc = jest.fn()
+    const propsFunctions = {
+      ...props,
+      onSnooze: mockFunc,
+      onAccept: mockFunc,
+      onDismiss: mockFunc,
+    }
+    const component = shallow(<Headerstrip {...propsFunctions} />)
+    const instance = component.instance()
+    const event = {
+      preventDefault() {},
+      target: { value: 'the-value' },
+    }
     instance.onDismiss(event)
     expect(component.state().status).toEqual('dismissed')
+  })
+
+  it('validate: onAccept function', () => {
+    const mockFunc = jest.fn()
+    const propsFunctions = {
+      ...props,
+      onSnooze: mockFunc,
+      onAccept: mockFunc,
+      onDismiss: mockFunc,
+    }
+    const component = shallow(<Headerstrip {...propsFunctions} />)
+    const instance = component.instance()
+    const event = {
+      preventDefault() {},
+      target: { value: 'the-value' },
+    }
     instance.onAccept(event)
     expect(component.state().status).toEqual('accepted')
     instance.onAcceptNps(event, 1)
