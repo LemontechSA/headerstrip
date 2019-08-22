@@ -29,6 +29,7 @@ storiesOf('Headerstrip', module)
     <Headerstrip
       id={uid()}
       title="Click Snooze"
+      showSnooze
       onSnooze={() => {
         alert('Hey, you snoozed!')
       }}
@@ -47,6 +48,8 @@ storiesOf('Headerstrip', module)
     <Headerstrip
       id={uid()}
       npsShow
+      showDismiss
+      showSnooze
       nps={{
         ranking: 10,
         texts: {

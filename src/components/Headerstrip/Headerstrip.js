@@ -15,19 +15,16 @@ class Headerstrip extends Component {
     id: PropTypes.string,
     nps: PropTypes.object,
     npsShow: PropTypes.bool,
-    onAccept: PropTypes.func,
+    onAccept: PropTypes.func.isRequired,
     onDismiss: PropTypes.func,
     onSnooze: PropTypes.func,
-    showDismiss: PropTypes.bool,
-    showSnooze: PropTypes.bool,
+    showDismiss: PropTypes.bool.isRequired,
+    showSnooze: PropTypes.bool.isRequired,
     texts: PropTypes.objectOf(PropTypes.string),
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
-    title: 'Placeholder title',
-    showDismiss: true,
-    showSnooze: true,
     texts: {
       accept: 'Accept',
       dismiss: 'Dismiss',
