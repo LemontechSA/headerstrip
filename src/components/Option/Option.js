@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import css from '../Headerstrip/Headerstrip.css'
 
 const Option = props => {
@@ -29,7 +28,7 @@ Option.propTypes = {
 }
 
 Option.defaultProps = {
-  className: classNames(css['headerstrip-option']),
+  className: css['headerstrip-option'],
   onClick: () => {},
   text: 'text option',
 }

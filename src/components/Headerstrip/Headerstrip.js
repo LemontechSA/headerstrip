@@ -5,7 +5,6 @@ import { Transition } from 'react-spring'
 import TopBarProgress from 'react-topbar-progress-indicator'
 import NpsRanking from '../NpsRanking/NpsRanking'
 import Option from '../Option/Option'
-
 import css from './Headerstrip.css'
 
 const moment = require('moment')
@@ -61,16 +60,18 @@ class Headerstrip extends Component {
   }
 
   statusKey() {
-    return `${this.props.id}-status`
+    const { id } = this.props
+    return `${id}-status`
   }
 
   actionKey() {
-    return `${this.props.id}-action-at`
+    const { id } = this.props
+    return `${id}-action-at`
   }
 
   onAccept = event => {
     const { onAccept } = this.props
-    if (typeof this.props.onAccept === 'function') {
+    if (typeof onAccept === 'function') {
       event.preventDefault()
       onAccept()
     }
@@ -157,7 +158,7 @@ class Headerstrip extends Component {
         {showNpsAccept ? (
           <Fragment>
             <TopBarProgress />
-            <div className={classNames(css['headerstrip-title-nps'])}>
+            <div className={css['headerstrip-title-nps']}>
               {texts.accept || 'Accept'}
             </div>
           </Fragment>
@@ -172,11 +173,9 @@ class Headerstrip extends Component {
               />
             )}
             {!npsShow && (
-              <div className={classNames(css['headerstrip-title'])}>
-                {title}
-              </div>
+              <div className={css['headerstrip-title']}>{title}</div>
             )}
-            <div className={classNames(css['headerstrip-options'])}>
+            <div className={css['headerstrip-options']}>
               {showDismiss && (
                 <Option
                   className={classNames(
