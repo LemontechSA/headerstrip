@@ -10,37 +10,44 @@ import '../dist/headerstrip.css'
 storiesOf('Headerstrip', module)
   .addDecorator(withReadme([readme]))
   .addDecorator(withKnobs)
-  .add('with no props', () => <Headerstrip />)
-  .add('with id', () => <Headerstrip id={uid()} />)
   .add('with customized texts', () => (
     <Headerstrip
       id={uid()}
+      showDismiss
+      showSnooze
+      title="Title"
       texts={{
         accept: 'Refer someone',
         dismiss: 'Not interested',
         remind_me_later: 'Snooze please!',
       }}
+      onAccept={() => {
+        console.log('test')
+      }}
     />
-  ))
-  .add('with custom title', () => (
-    <Headerstrip id={uid()} title="Refer someone and win a trip to the moon!" />
   ))
   .add('generate alert when snoozing', () => (
     <Headerstrip
       id={uid()}
       title="Click Snooze"
+      showDismiss
       showSnooze
       onSnooze={() => {
         alert('Hey, you snoozed!')
+      }}
+      onAccept={() => {
+        console.log('accept')
       }}
     />
   ))
   .add('open a website when accepting', () => (
     <Headerstrip
       id={uid()}
+      showDismiss
+      showSnooze
       title="Click Accept"
       onAccept={() => {
-        window.open('https://blog.5rabbits.com/', '_blank')
+        console.log('accept')
       }}
     />
   ))
@@ -66,7 +73,7 @@ storiesOf('Headerstrip', module)
         remind_me_later: 'Recordarme más tarde',
       }}
       onAccept={index => {
-        console.log(index)
+        console.log(index, 'accept')
       }}
     />
   ))

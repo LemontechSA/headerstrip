@@ -9,11 +9,11 @@ const Option = props => {
       className={className}
       role="button"
       tabIndex={0}
-      onClick={() => {
-        onClick()
+      onClick={e => {
+        onClick(e)
       }}
-      onKeyPress={() => {
-        onClick()
+      onKeyPress={e => {
+        onClick(e)
       }}
     >
       {text}
