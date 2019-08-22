@@ -2,3 +2,4 @@ node_modules
 stats.html
 tests/coverage
 yarn-error.log
+dist
