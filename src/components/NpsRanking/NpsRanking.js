@@ -4,23 +4,17 @@ import css from '../Headerstrip/Headerstrip.css'
 
 export default class NpsRanking extends React.PureComponent {
   static propTypes = {
-    callback: PropTypes.func,
+    callback: PropTypes.func.isRequired,
     npsTexts: PropTypes.shape({
       left: PropTypes.string,
       right: PropTypes.string,
-    }),
+    }).isRequired,
     ranking: PropTypes.number,
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
-    npsTexts: {
-      left: 'Poco probable',
-      right: 'Muy probable',
-    },
     ranking: 10,
-    callback: () => {},
-    title: 'Default Title',
   }
 
   render() {

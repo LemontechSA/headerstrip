@@ -23,14 +23,12 @@ const Option = props => {
 
 Option.propTypes = {
   className: PropTypes.string,
-  onClick: PropTypes.func,
-  text: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
 }
 
 Option.defaultProps = {
   className: css['headerstrip-option'],
-  onClick: () => {},
-  text: 'text option',
 }
 
 export default Option

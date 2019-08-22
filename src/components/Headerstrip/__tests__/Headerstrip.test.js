@@ -5,6 +5,10 @@ import Headerstrip from '../Headerstrip'
 describe(Headerstrip, () => {
   const props = {
     id: '1234',
+    title: 'Title',
+    showDismiss: true,
+    showSnooze: true,
+    onAccept: jest.fn(),
     texts: {
       accept: 'Refer someone',
       dismiss: 'Not interested',
@@ -12,19 +16,9 @@ describe(Headerstrip, () => {
     },
   }
 
-  it('to be defined component wihout props', () => {
-    const component = shallow(<Headerstrip />)
+  it('to be defined component', () => {
+    const component = shallow(<Headerstrip {...props} />)
     expect(component).toBeDefined()
-  })
-
-  it('component with prop id - validate default props', () => {
-    const component = shallow(<Headerstrip id="1234" />)
-    expect(component.props().title).toEqual('Placeholder title')
-    expect(component.props().texts).toEqual({
-      accept: 'Accept',
-      dismiss: 'Dismiss',
-      remind_me_later: 'Snooze',
-    })
   })
 
   it('validate: actionKey function', () => {

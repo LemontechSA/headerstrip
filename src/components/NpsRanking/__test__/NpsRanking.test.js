@@ -4,7 +4,16 @@ import NpsRanking from '../NpsRanking'
 
 describe(NpsRanking, () => {
   it('to be defined component wihout props', () => {
-    const component = shallow(<NpsRanking />)
+    const props = {
+      ranking: 2,
+      npsTexts: {
+        left: 'text',
+        right: 'text',
+      },
+      callback: jest.fn(),
+      title: 'title',
+    }
+    const component = shallow(<NpsRanking {...props} />)
     expect(component).toBeDefined()
   })
 

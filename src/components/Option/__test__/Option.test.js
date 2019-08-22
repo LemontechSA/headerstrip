@@ -3,11 +3,6 @@ import { shallow } from 'tests/test-helper'
 import Option from '../Option'
 
 describe(Option, () => {
-  it('to be defined component without props', () => {
-    const component = shallow(<Option />)
-    expect(component).toBeDefined()
-  })
-
   it('to be defined component with props', () => {
     const mockFunc = jest.fn()
     const props = {
