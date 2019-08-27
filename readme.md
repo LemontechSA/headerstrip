@@ -1,32 +1,36 @@
-# @5rabbits/headerstrip [![npm](https://img.shields.io/npm/v/@5rabbits/headerstrip.svg?style=flat-square)](https://www.npmjs.com/package/@5rabbits/headerstrip) [![Travis](https://img.shields.io/travis/5rabbits/headerstrip.svg?style=flat-square)](https://travis-ci.org/5rabbits/headerstrip) [![Codecov](https://img.shields.io/codecov/c/repository/5rabbits/headerstrip.svg?style=flat-square)](https://codecov.io/gh/5rabbits/headerstrip)
+# @lemontech/headerstrip [![npm](https://img.shields.io/npm/v/@lemontech/headerstrip.svg?style=flat-square)](https://www.npmjs.com/package/@lemontech/headerstrip) [![Travis](https://img.shields.io/travis/lemontech/headerstrip.svg?style=flat-square)](https://travis-ci.org/lemontech/headerstrip) [![Codecov](https://img.shields.io/codecov/c/repository/lemontech/headerstrip.svg?style=flat-square)](https://codecov.io/gh/lemontech/headerstrip)
 
 A component to display advertising campaings as a header banner in your apps. Stores behavior locally on localStorage.
 
 ## Usage
 
-- Install with `yarn add @5rabbits/headerstrip`.
+- Install with `yarn add @lemontech/headerstrip`.
 - Install peer dependencies (if you haven't already) `yarn add react@^16.0.0 react-dom@^16.0.0`.
 - Use the component:
 
 ```es6
-import Headerstrip from '@5rabbits/headerstrip'
-import '@5rabbits/headerstrip/dist/headerstrip.css'
+import Headerstrip from '@lemontech/headerstrip'
+import '@lemontech/headerstrip/dist/headerstrip.css'
 
 <Headerstrip />
 ```
 
-[Demo](https://5rabbits.github.io/headerstrip)
+[Demo](https://lemontechSA.github.io/headerstrip)
 
 ## Props
 
-| prop         | type                     | default     | required | description                                                                                                                                                                                       |
-| :----------- | :----------------------- | :---------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| id | string |  |   true       | Advertising unique id, if not supplied the headerstrip will not render.|
-| title | string | `'Placeholder title'` |          | Headerstrip title, the main message should be here.|
-| texts | object | `{accept: 'Accept', dismiss: 'Dismiss', remind_me_later: 'Snooze'}`      |          | Texts used in the component action buttons.|
-| onAccept | function |             |          | Callback when accept button is clicked. |
-| onDismiss | function |             |          | Callback when dismiss button is clicked. |
-| onSnooze | function |             |          | Callback when snooze button is clicked. |
+| prop        | type     | default                                                                                              | required | description                                                             |
+| :---------- | :------- | :--------------------------------------------------------------------------------------------------- | :------- | :---------------------------------------------------------------------- |
+| id          | string   |                                                                                                      | true     | Advertising unique id, if not supplied the headerstrip will not render. |
+| title       | string   |                                                                                                      | true     | Headerstrip title, the main message should be here.                     |
+| texts       | object   | `{accept: 'Accept', dismiss: 'Dismiss', remind_me_later: 'Snooze'}`                                  |          | Texts used in the component action buttons.                             |
+| onAccept    | function |                                                                                                      | true     | Callback when accept button is clicked.                                 |
+| showDismiss | boolean  |                                                                                                      | true     | Show Dismiss button.                                                    |
+| onDismiss   | function |                                                                                                      |          | Callback when dismiss button is clicked.                                |
+| showSnooze  | boolean  |                                                                                                      | true     | Show Snooze button.                                                     |
+| onSnooze    | function |                                                                                                      |          | Callback when snooze button is clicked.                                 |
+| npsShow     | boolean  | false                                                                                                |          | Show NPS format.                                                        |
+| nps         | object   | `{ranking: 10,texts: {left: 'Unlikely',right: 'Very likely',},progressColor: 'rgba(230,123,47,1)',}` |          | Texts and props used in the component nps.                              |
 
 ## Development
 
@@ -37,4 +41,3 @@ import '@5rabbits/headerstrip/dist/headerstrip.css'
 ## Testing
 
 - Pending
-

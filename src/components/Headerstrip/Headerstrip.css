@@ -4,23 +4,66 @@
   padding: 10px;
   display: flex;
   width: 100%;
-  color: #FFF;
+  color: #fff;
   justify-content: space-between;
   align-items: center;
-  background: rgba(202,104,39,1);
-  background: -moz-linear-gradient(-45deg, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 50%, rgba(230,123,47,1) 50%, rgba(230,123,47,1) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(202,104,39,1)), color-stop(0%, rgba(202,104,39,1)), color-stop(50%, rgba(202,104,39,1)), color-stop(50%, rgba(230,123,47,1)), color-stop(100%, rgba(230,123,47,1)));
-  background: -webkit-linear-gradient(-45deg, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 50%, rgba(230,123,47,1) 50%, rgba(230,123,47,1) 100%);
-  background: -o-linear-gradient(-45deg, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 50%, rgba(230,123,47,1) 50%, rgba(230,123,47,1) 100%);
-  background: -ms-linear-gradient(-45deg, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 50%, rgba(230,123,47,1) 50%, rgba(230,123,47,1) 100%);
-  background: linear-gradient(135deg, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 0%, rgba(202,104,39,1) 50%, rgba(230,123,47,1) 50%, rgba(230,123,47,1) 100%);
+  background: rgba(202, 104, 39, 1);
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 50%,
+    rgba(230, 123, 47, 1) 50%,
+    rgba(230, 123, 47, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right bottom,
+    color-stop(0%, rgba(202, 104, 39, 1)),
+    color-stop(0%, rgba(202, 104, 39, 1)),
+    color-stop(50%, rgba(202, 104, 39, 1)),
+    color-stop(50%, rgba(230, 123, 47, 1)),
+    color-stop(100%, rgba(230, 123, 47, 1))
+  );
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 50%,
+    rgba(230, 123, 47, 1) 50%,
+    rgba(230, 123, 47, 1) 100%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 50%,
+    rgba(230, 123, 47, 1) 50%,
+    rgba(230, 123, 47, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    -45deg,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 50%,
+    rgba(230, 123, 47, 1) 50%,
+    rgba(230, 123, 47, 1) 100%
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 0%,
+    rgba(202, 104, 39, 1) 50%,
+    rgba(230, 123, 47, 1) 50%,
+    rgba(230, 123, 47, 1) 100%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ca6827', endColorstr='#e67b2f', GradientType=1 );
 }
 
 .headerstrip-options {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -36,7 +79,7 @@
 .headerstrip-rounded-option {
   margin-right: 12px;
   border-radius: 2px;
-  border: 2px #FFFFFF solid;
+  border: 2px #ffffff solid;
 }
 
 .headerstrip-rounded-option:last-child {
@@ -45,5 +88,60 @@
 
 .headerstrip-option:hover {
   cursor: pointer;
-  background-color: #CA6827;
+  background-color: #ca6827;
+}
+
+.headerstrip-title-nps {
+  color: #ffffff;
+  font-family: 'Helvetica Neue';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.headerstrip-title-nps-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.headerstrip-nps-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.headerstrip-ranking {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+}
+
+.headerstrip-ranking-cell {
+  height: 32px;
+  padding-left: 2px;
+  width: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee;
+  color: #8b8b8b;
+  font-family: Helvetica;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  margin-left: 1.5px;
+}
+
+.headerstrip-ranking-nps {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
