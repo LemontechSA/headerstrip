@@ -1,5 +1,5 @@
 {
-  "name": "@5rabbits/headerstrip",
+  "name": "@lemontech/headerstrip",
   "version": "0.10.0",
   "main": "dist/headerstrip.js",
   "files": [
@@ -7,13 +7,12 @@
   ],
   "license": "MIT",
   "description": "A component to display advertising campaings as a header banner in your apps.",
-  "author": "5rabbits <5rabbits@lemontech.com> (http://www.5rabbits.com)",
+  "author": "lemontech <lemontech@lemontech.com> (http://lemontech.engineering/)",
   "keywords": [
-    "5rabbits",
     "lemontech",
     "react"
   ],
-  "repository": "github:5rabbits/headerstrip",
+  "repository": "github:LemontechSA/headerstrip",
   "publishConfig": {
     "access": "public"
   },

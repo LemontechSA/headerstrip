@@ -63,7 +63,7 @@
 .headerstrip-options {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -138,4 +138,10 @@
   line-height: 16px;
   text-align: center;
   margin-left: 1.5px;
+}
+
+.headerstrip-ranking-nps {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

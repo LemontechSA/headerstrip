@@ -34,8 +34,8 @@ class Headerstrip extends Component {
     nps: {
       ranking: 10,
       texts: {
-        left: 'Poco probable',
-        right: 'Muy probable',
+        left: 'Unlikely',
+        right: 'Very likely',
       },
       progressColor: 'rgba(230,123,47,1)',
     },

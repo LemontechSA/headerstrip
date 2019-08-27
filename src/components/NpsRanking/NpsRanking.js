@@ -30,22 +30,24 @@ export default class NpsRanking extends React.PureComponent {
           >
             {npsTexts.left}
           </div>
-          {data.map(index => (
-            <div
-              key={index}
-              role="button"
-              tabIndex="0"
-              className={css['headerstrip-ranking-cell']}
-              onClick={event => {
-                callback(event, index)
-              }}
-              onKeyPress={event => {
-                callback(event, index)
-              }}
-            >
-              {index}
-            </div>
-          ))}
+          <div className={css['headerstrip-ranking-nps']}>
+            {data.map(index => (
+              <div
+                key={index}
+                role="button"
+                tabIndex="0"
+                className={css['headerstrip-ranking-cell']}
+                onClick={event => {
+                  callback(event, index)
+                }}
+                onKeyPress={event => {
+                  callback(event, index)
+                }}
+              >
+                {index}
+              </div>
+            ))}
+          </div>
           <div
             style={{ marginLeft: 4 }}
             className={css['headerstrip-title-nps-options']}
